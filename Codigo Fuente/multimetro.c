@@ -16,70 +16,89 @@
 
 #include <lcd.c>
 
-int edo_boton = 0, edo_menu = 0, menu = 1;
+// Enumeraciones para los estados del menú y del botón
+typedef enum {
+    MENU_INICIO,
+    MENU_TEMPERATURA,
+    MENU_VOLTAGE,
+    MENU_CORRIENTE
+} menu_state_t;
+
+typedef enum {
+    BOTON_NINGUNO,
+    BOTON_ARRIBA,
+    BOTON_ABAJO,
+    BOTON_SELECT,
+    BOTON_EXIT
+} boton_state_t;
+
+menu_state_t estado_menu = MENU_INICIO;
+boton_state_t estado_boton = BOTON_NINGUNO;
 char grados = 0xDF;
 
 #INT_RB
 void isr_rb(void) {
     switch(input_b()) {
         case 0b01110000:
-            edo_boton = 1;
+            estado_boton = BOTON_ARRIBA;
             break;
         case 0b10110000:
-            edo_boton = 2;
+            estado_boton = BOTON_ABAJO;
             break;
         case 0b11010000:
-            edo_boton = 3;
+            estado_boton = BOTON_SELECT;
             break;
         case 0b11100000:
-            edo_boton = 4;
+            estado_boton = BOTON_EXIT;
+            break;
+        default:
+            estado_boton = BOTON_NINGUNO;
             break;
     }
     delay_ms(20);
 }
 
-void menu_inicio() {
-    edo_boton = 0;
-
-    switch (menu) {
-        case 1:
+void mostrar_menu_inicio() {
+    switch(estado_menu) {
+        case MENU_INICIO:
             lcd_putc('\f');
             lcd_putc("* Temperatura");
             lcd_gotoxy(1,2);
             lcd_putc(" Voltimetro");
             break;
-        case 2:
+        case MENU_TEMPERATURA:
             lcd_putc('\f');
             lcd_putc(" Temperatura");
             lcd_gotoxy(1,2);
             lcd_putc("* Voltimetro");
             break;
-        case 3:
+        case MENU_VOLTAGE:
             lcd_putc('\f');
             lcd_putc(" Voltimetro");
             lcd_gotoxy(1,2);
             lcd_putc("* Amperimetro");
             break;
     }
+}
 
-    while(!edo_boton);
-
-    switch(edo_boton) {
-        case 1:
-            menu--;
-            if(menu < 1)
-                menu = 1;
+void actualizar_estado_menu() {
+    switch (estado_boton) {
+        case BOTON_ARRIBA:
+            if (estado_menu > MENU_INICIO) {
+                estado_menu--;
+            }
             break;
-        case 2:
-            menu++;
-            if(menu > 3)
-                menu = 3;
+        case BOTON_ABAJO:
+            if (estado_menu < MENU_CORRIENTE) {
+                estado_menu++;
+            }
             break;
-        case 3:
-            edo_menu = menu;
+        case BOTON_SELECT:
+            estado_boton = BOTON_NINGUNO;
             break;
-        case 4:
-            menu = menu;
+        case BOTON_EXIT:
+            estado_menu = MENU_INICIO;
+            estado_boton = BOTON_NINGUNO;
             break;
     }
 }
@@ -89,12 +108,12 @@ void temperatura() {
     float temperatura_salida;
 
     set_adc_channel(0);
-    edo_boton = 0;
+    estado_boton = BOTON_NINGUNO;
     delay_us(50);
     lcd_putc('\f');
     lcd_putc(" Temperatura: ");
 
-    while (edo_boton != 4) {
+    while (estado_boton != BOTON_EXIT) {
         temperatura_entrada = read_adc();
         temperatura_salida = temperatura_entrada * 0.483;
         lcd_gotoxy(1,2);
@@ -102,41 +121,39 @@ void temperatura() {
         delay_ms(25);
     }
 
-    menu = 1;
-    edo_menu = 0;
+    estado_menu = MENU_INICIO;
 }
 
 void voltaje() {
     float volt;
-    edo_boton = 0;
+    estado_boton = BOTON_NINGUNO;
     
     set_adc_channel(1);
     delay_us(50);
 
     lcd_putc("\f Voltaje: ");
-    while (edo_boton != 4) {
+    while (estado_boton != BOTON_EXIT) {
         volt = (float) read_adc() * ((5.0 / 1024.0) * 4.1);
         lcd_gotoxy(1,2);
         printf(lcd_putc," %2.2f V. ", volt);
         delay_ms(25);
     }
 
-    menu = 1;
-    edo_menu = 0;
+    estado_menu = MENU_INICIO;
 }
 
 void corriente() {
     int valor_entrada;
     float v, i;
     float r = 0.1;
-    edo_boton = 0;
+    estado_boton = BOTON_NINGUNO;
 
     set_adc_channel(2);
 
     delay_us(50);
     lcd_putc("\fCorriente: ");
 
-    while (edo_boton != 4) {
+    while (estado_boton != BOTON_EXIT) {
         valor_entrada = (float) read_adc();
         v = valor_entrada * ((5.0 / 1023.0) * 4.09);
         i = v / r;
@@ -145,8 +162,7 @@ void corriente() {
         delay_ms(25);
     }
 
-    menu = 1;
-    edo_menu = 0;
+    estado_menu = MENU_INICIO;
 }
 
 void initial_config() {
@@ -181,18 +197,19 @@ void main()
     initial_config();
     creditos();
 
-    while(true) {
-        switch(edo_menu) {
-            case 0:
-                menu_inicio();
+    while (true) {
+        switch(estado_menu) {
+            case MENU_INICIO:
+                mostrar_menu_inicio();
+                actualizar_estado_menu();
                 break;
-            case 1:
+            case MENU_TEMPERATURA:
                 temperatura();
                 break;
-            case 2:
+            case MENU_VOLTAGE:
                 voltaje();
                 break;
-            case 3:
+            case MENU_CORRIENTE:
                 corriente();
                 break;
         }
