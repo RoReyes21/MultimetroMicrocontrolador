@@ -11,7 +11,7 @@ Type=4
 1=multimetro.c
 
 [defines]
-buildcount=4
+buildcount=7
 
 [Opened Files]
 1=multimetro.c

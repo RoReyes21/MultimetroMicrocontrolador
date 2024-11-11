@@ -1,7 +1,7 @@
 D G "__PCM__" 0 232 ""5.093""
 D G "__DEVICE__" 0 232 "877"
 D G "__DATE__" 0 232 ""10-Nov-24""
-D G "__TIME__" 0 232 ""19:37:33""
+D G "__TIME__" 0 232 ""19:57:44""
 D G "_UNICODE" 0 232 ""?""
 D G "__EVAL" 0 232 ""?"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
@@ -1199,31 +1199,31 @@ V L "on" 2 443 "int8" `708
 F G "lcd_cursor_on" 2 444 "void(int8 on)" `707 
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-E G "SELECCION_TEMPERATURA" 0 22 "1" `710 
-E G "SELECCION_VOLTAJE" 0 23 "2" `711 
-E G "SELECCION_AMPERAJE" 0 24 "3" `712 
+E G "SELECCION_VOLTAJE" 0 22 "1" `710 
+E G "SELECCION_AMPERAJE" 0 23 "2" `711 
+E G "SELECCION_TEMPERATURA" 0 24 "3" `712 
 V G "" 0 24 ""
 E G "ESTADO_MENU_INICIO" 0 28 "0" `714 
-E G "ESTADO_MENU_TEMPERATURA" 0 29 "1" `715 
-E G "ESTADO_MENU_VOLTAJE" 0 30 "2" `716 
-E G "ESTADO_MENU_AMPERAJE" 0 31 "3" `717 
+E G "ESTADO_MENU_VOLTAJE" 0 29 "1" `715 
+E G "ESTADO_MENU_AMPERAJE" 0 30 "2" `716 
+E G "ESTADO_MENU_TEMPERATURA" 0 31 "3" `717 
 V G "" 0 31 ""
 F N "creditos" 0 33 ""
 f G "creditos" 0 33 "void()" `718 
 F N "initial_config" 0 34 ""
 f G "initial_config" 0 34 "void()" `719 
-F N "corriente" 0 35 ""
-f G "corriente" 0 35 "void()" `720 
-F N "voltaje" 0 36 ""
-f G "voltaje" 0 36 "void()" `721 
-F N "temperatura" 0 37 ""
-f G "temperatura" 0 37 "void()" `722 
-F N "menu_inicio" 0 38 ""
-f G "menu_inicio" 0 38 "void()" `723 
+F N "menu_inicio" 0 35 ""
+f G "menu_inicio" 0 35 "void()" `720 
+F N "mostrar_corriente" 0 36 ""
+f G "mostrar_corriente" 0 36 "void()" `721 
+F N "mostrar_voltaje" 0 37 ""
+f G "mostrar_voltaje" 0 37 "void()" `722 
+F N "mostrar_temperatura" 0 38 ""
+f G "mostrar_temperatura" 0 38 "void()" `723 
 V G "seleccion_menu_inicio" 0 40 "int8" `724 
 V G "estado_menu" 0 41 "int8" `725 
 V G "refresh" 0 42 "int8" `726 
-C L "menu_inicio" 0 44 1 "*"
+C L "mostrar_temperatura" 0 44 1 "*"
 F N "isr_rb" 0 49 ""
 F G "isr_rb" 0 49 "void()" `727 
 C L "isr_rb" 0 44 1 "FUNCTION"
@@ -1237,20 +1237,20 @@ F N "creditos" 0 123 ""
 F G "creditos" 0 123 "void()" `718 
 C L "menu_inicio" 0 142 1 "*"
 F N "menu_inicio" 0 146 ""
-F G "menu_inicio" 0 146 "void()" `723 
-C L "temperatura" 0 169 1 "*"
-F N "temperatura" 0 173 ""
-F G "temperatura" 0 173 "void()" `722 
+F G "menu_inicio" 0 146 "void()" `720 
+C L "mostrar_temperatura" 0 169 1 "*"
+F N "mostrar_temperatura" 0 173 ""
+F G "mostrar_temperatura" 0 173 "void()" `723 
 V L "temperatura_entrada" 0 174 "int8" `748 
 V L "temperatura_salida" 0 175 "float" `749 
 V L "grados" 0 176 "int8" `750 
-C L "voltaje" 0 191 1 "*"
-F N "voltaje" 0 195 ""
-F G "voltaje" 0 195 "void()" `721 
+C L "mostrar_voltaje" 0 191 1 "*"
+F N "mostrar_voltaje" 0 195 ""
+F G "mostrar_voltaje" 0 195 "void()" `722 
 V L "voltaje" 0 196 "float" `766 
-C L "corriente" 0 210 1 "*"
-F N "corriente" 0 214 ""
-F G "corriente" 0 214 "void()" `720 
+C L "mostrar_corriente" 0 210 1 "*"
+F N "mostrar_corriente" 0 214 ""
+F G "mostrar_corriente" 0 214 "void()" `721 
 V L "voltaje" 0 215 "float" `771 
 V L "corriente" 0 215 "float" `772 
 V L "resistencia" 0 215 "float" `773 

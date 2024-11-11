@@ -22,21 +22,21 @@
 02C     estado_menu
 02D     refresh
 02E-02F @sprintf_string
-030-033 corriente.voltaje
+030-033 mostrar_corriente.voltaje
 030     lcd_init.i
-030     temperatura.temperatura_entrada
-030-033 voltaje.voltaje
-031-034 temperatura.temperatura_salida
+030     mostrar_temperatura.temperatura_entrada
+030-033 mostrar_voltaje.voltaje
+031-034 mostrar_temperatura.temperatura_salida
 031-034 lcd_init.LCD_INIT_STRING
-034-037 corriente.corriente
-034     voltaje.@SCRATCH1
-035     temperatura.grados
+034-037 mostrar_corriente.corriente
+034     mostrar_voltaje.@SCRATCH1
+035     mostrar_temperatura.grados
 035     lcd_init.@SCRATCH1
-035     voltaje.@SCRATCH2
-036     voltaje.@SCRATCH3
-037     voltaje.@SCRATCH4
-038-03B corriente.resistencia
-03C     corriente.valor_entrada
+035     mostrar_voltaje.@SCRATCH2
+036     mostrar_voltaje.@SCRATCH3
+037     mostrar_voltaje.@SCRATCH4
+038-03B mostrar_corriente.resistencia
+03C     mostrar_corriente.valor_entrada
 03D-03E @ITOF.P1
 03D-040 @PRINTF_L32D_697FPFPF.P2
 03D-040 @DIVFF.P3
@@ -174,14 +174,14 @@ FFF     @INTERRUPT_AREA
 ROM Allocation:
 00004F  isr_rb
 000089  @const732.call
-000093  @const737.call
-00009A  @const738.call
-0000A2  @const739.call
-0000A5  @const740.call
-0000AE  @const741.call
-0000B6  @const742.call
-0000BF  @const743.call
-0000C5  @const744.call
+000092  @const737.call
+000099  @const738.call
+0000A1  @const739.call
+0000A4  @const740.call
+0000AD  @const741.call
+0000B5  @const742.call
+0000BD  @const743.call
+0000C4  @const744.call
 0000CD  @const745.call
 0000D4  @const746.call
 0000DB  @const747.call
@@ -207,28 +207,28 @@ ROM Allocation:
 0003F6  @DIV3232
 000445  @PRINTF_L32D_697FPFPF
 00046C  @FTOSD
-000525  temperatura
-000582  @PSTRINGCN7_697
-0005D9  voltaje
-000643  corriente
-000678  @SFTOI
-0006C5  @DIVFF
+000525  @PSTRINGCN7_697
+00057C  mostrar_voltaje
+0005E6  mostrar_corriente
+00061B  @SFTOI
+000668  @DIVFF
+00075F  mostrar_temperatura
 0007BC  MAIN
 0007BC  @cinit1
 0007D4  @cinit2
-0007E8  @goto49325
+0007E8  @goto15812
 
 Project Directory:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\
 
 Project Files:
-    multimetro.c                                            [10-nov.-24 19:35  CRC=F38B5B9A]
+    multimetro.c                                            [10-nov.-24 19:50  CRC=EF59D780]
     ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [21-feb.-20 15:47  CRC=AD8E8FBD]
     ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=44665A6B
+Source signature=4034D651
 Program memory checksum=0000
-Hex file CRC=1DF3
+Hex file CRC=1921
 
 Units:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro (main)

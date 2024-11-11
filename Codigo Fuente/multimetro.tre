@@ -57,7 +57,7 @@
    ³  ³  ÃÄ@PSTRINGC7_697  0/86  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@goto49325  0/8  Ram=0
+   ³  ÃÄ@goto15812  0/8  Ram=0
    ³  ÃÄmenu_inicio  0/76  Ram=0
    ³  ³  ÃÄ@PSTRINGC7_697  0/86  Ram=4
    ³  ³  ³  ÀÄ*
@@ -77,7 +77,7 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@PSTRINGC7_697  0/86  Ram=4
    ³  ³     ÀÄ*
-   ³  ÃÄtemperatura  0/93  Ram=6
+   ³  ÃÄmostrar_voltaje  0/106  Ram=8
    ³  ³  ÃÄ@PSTRINGC7_697  0/86  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@ITOF  0/29  Ram=2
@@ -99,16 +99,20 @@
    ³  ³  ³  ÃÄlcd_putc  0/44  Ram=1
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÀÄ@DIV3232  0/79  Ram=13
-   ³  ³  ÃÄlcd_putc  0/44  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄlcd_putc  0/44  Ram=1
-   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGCN7_697  0/87  Ram=5
+   ³  ³  ³  ÃÄlcd_putc  0/44  Ram=1
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÀÄlcd_putc  0/44  Ram=1
+   ³  ³  ³     ÀÄ*
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄvoltaje  0/106  Ram=8
+   ³  ÃÄmostrar_corriente  0/377  Ram=13
    ³  ³  ÃÄ@PSTRINGC7_697  0/86  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@ITOF  0/29  Ram=2
+   ³  ³  ÃÄ@SFTOI  (Inline)  Ram=4
+   ³  ³  ÃÄ@ITOF  0/29  Ram=2
    ³  ³  ÃÄ@MULFF  0/117  Ram=13
+   ³  ³  ÃÄ@DIVFF  (Inline)  Ram=14
    ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄlcd_putc  0/44  Ram=1
@@ -116,26 +120,22 @@
    ³  ³  ÃÄ@PRINTF_L32D_697FPFPF  0/224  Ram=13
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_697  0/87  Ram=5
-   ³  ³  ³  ÃÄlcd_putc  0/44  Ram=1
-   ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄlcd_putc  0/44  Ram=1
-   ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÀÄcorriente  0/377  Ram=13
+   ³  ÀÄmostrar_temperatura  0/93  Ram=6
    ³     ÃÄ@PSTRINGC7_697  0/86  Ram=4
    ³     ³  ÀÄ*
    ³     ÃÄ@ITOF  0/29  Ram=2
-   ³     ÃÄ@SFTOI  (Inline)  Ram=4
-   ³     ÃÄ@ITOF  0/29  Ram=2
    ³     ÃÄ@MULFF  0/117  Ram=13
-   ³     ÃÄ@DIVFF  (Inline)  Ram=14
    ³     ÃÄlcd_gotoxy  0/18  Ram=4
    ³     ³  ÀÄ*
    ³     ÃÄlcd_putc  0/44  Ram=1
    ³     ³  ÀÄ*
    ³     ÃÄ@PRINTF_L32D_697FPFPF  0/224  Ram=13
    ³     ³  ÀÄ*
-   ³     ÃÄ@PSTRINGCN7_697  0/87  Ram=5
+   ³     ÃÄlcd_putc  0/44  Ram=1
+   ³     ³  ÀÄ*
+   ³     ÃÄlcd_putc  0/44  Ram=1
    ³     ³  ÀÄ*
    ³     ÀÄ@delay_ms1  0/20  Ram=1
    ÀÄisr_rb  0/58  Ram=0
