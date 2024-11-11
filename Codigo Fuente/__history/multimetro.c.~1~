@@ -1,5 +1,5 @@
 #include <16f877a.h>
-
+#include <lcd.c>
 #fuses HS, NOPROTECT, NOLVP
 #device ADC=10
 #use delay(clock=20M)
@@ -14,8 +14,6 @@
 #define LCD_DATA6 PIN_D3
 #define LCD_DATA7 PIN_D2
 //End LCD Module Connections
-
-#include <lcd.c>
 
 enum seleccion_opciones_menu {
     SELECCION_TEMPERATURA = 1,
@@ -75,7 +73,7 @@ void isr_rb(void) {
             }
             break;
     }
-    //delay_ms(10);
+    delay_ms(10);
 }
 
 void main() 
@@ -84,8 +82,6 @@ void main()
     creditos();
 
     while(true) {
-        refresh = false;
-
         switch(estado_menu) {
             case ESTADO_MENU_INICIO:
                 menu_inicio();
@@ -123,7 +119,7 @@ void initial_config() {
 void creditos() {
     lcd_init();
     lcd_gotoxy(1,1);
-    lcd_putc("\fMultimetro Digital");
+    lcd_putc("\fPF: Multimetro Digital");
     lcd_gotoxy(1,2);
     lcd_putc("EQ 6, Grupo 6");
     delay_ms(100);
@@ -144,6 +140,7 @@ void creditos() {
  * 
  */
 void menu_inicio() {
+    refresh = false;
 
     switch (seleccion_menu_inicio) {
         case SELECCION_TEMPERATURA:
@@ -174,6 +171,7 @@ void temperatura() {
     int temperatura_entrada;
     float temperatura_salida;
     char grados = 0xDF;
+    refresh = false;
 
     set_adc_channel(0);
     delay_us(40);
@@ -194,6 +192,7 @@ void temperatura() {
  */
 void voltaje() {
     float voltaje;
+    refresh = false;
 
     set_adc_channel(1);
     delay_us(40);
@@ -214,6 +213,7 @@ void voltaje() {
 void corriente() {
     float voltaje, corriente, resistencia = 0.1;
     int valor_entrada;
+    refresh = false;
 
     set_adc_channel(2);
     delay_us(40);

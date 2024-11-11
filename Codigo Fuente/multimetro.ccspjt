@@ -1,0 +1,28 @@
+[PROJECT]
+Target=multimetro.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.093
+Compiler=PCM
+[Target Data]
+FileList=multimetro.c
+[multimetro.c]
+Type=4
+[mru-list]
+1=multimetro.c
+
+[defines]
+buildcount=4
+
+[Opened Files]
+1=multimetro.c
+t1=1
+Count=1
+
+[ProjectLog]
+Days=1
+D1=10-11-2024
+D1_L=1
+D1_L1=[70422]Stopped Editing.
+[Units]
+Count=1
+1=multimetro (main)

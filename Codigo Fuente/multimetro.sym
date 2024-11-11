@@ -1,0 +1,255 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @INTERRUPT_AREA
+021     @INTERRUPT_AREA
+022     @INTERRUPT_AREA
+023     @INTERRUPT_AREA
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029     @INTERRUPT_AREA
+02A     @INTERRUPT_AREA
+02B     seleccion_menu_inicio
+02C     estado_menu
+02D     refresh
+02E-02F @sprintf_string
+030-033 corriente.voltaje
+030     lcd_init.i
+030     temperatura.temperatura_entrada
+030-033 voltaje.voltaje
+031-034 temperatura.temperatura_salida
+031-034 lcd_init.LCD_INIT_STRING
+034-037 corriente.corriente
+034     voltaje.@SCRATCH1
+035     temperatura.grados
+035     lcd_init.@SCRATCH1
+035     voltaje.@SCRATCH2
+036     voltaje.@SCRATCH3
+037     voltaje.@SCRATCH4
+038-03B corriente.resistencia
+03C     corriente.valor_entrada
+03D-03E @ITOF.P1
+03D-040 @PRINTF_L32D_697FPFPF.P2
+03D-040 @DIVFF.P3
+03D-040 @SFTOI.P4
+03D     @PSTRINGCN7_697.P5
+03D     @PSTRINGC7_697.@SCRATCH1
+03E     @PSTRINGC7_697.@SCRATCH2
+03E     @PSTRINGCN7_697.@SCRATCH1
+03F     @PSTRINGC7_697.@SCRATCH3
+03F     @PSTRINGCN7_697.@SCRATCH2
+040     @PSTRINGC7_697.@SCRATCH4
+040     @PSTRINGCN7_697.@SCRATCH3
+041     @PRINTF_L32D_697FPFPF.P1
+041-044 @DIVFF.P2
+041     @PSTRINGCN7_697.@SCRATCH4
+042     @PRINTF_L32D_697FPFPF.@SCRATCH1
+043     @PRINTF_L32D_697FPFPF.@SCRATCH2
+044     @PRINTF_L32D_697FPFPF.@SCRATCH3
+045     @PRINTF_L32D_697FPFPF.@SCRATCH4
+045     @DIVFF.@SCRATCH1
+046     @PRINTF_L32D_697FPFPF.@SCRATCH5
+046     @DIVFF.@SCRATCH2
+047     @PRINTF_L32D_697FPFPF.@SCRATCH6
+047     @DIVFF.@SCRATCH3
+048     @PRINTF_L32D_697FPFPF.@SCRATCH7
+048     @DIVFF.@SCRATCH4
+049     @PRINTF_L32D_697FPFPF.@SCRATCH8
+049     @DIVFF.@SCRATCH5
+04A-04D @DIV3232.P1
+04A     lcd_putc.c
+04A-04D @FTOSD.P1
+04A-04D @MULFF.P2
+04A     @DIVFF.@SCRATCH6
+04B     lcd_gotoxy.x
+04B     @delay_ms1.P1
+04C     lcd_gotoxy.y
+04D     lcd_gotoxy.address
+04E-051 @MULFF.P1
+04E-051 @DIV3232.P2
+04E     lcd_gotoxy.@SCRATCH1
+04E     @FTOSD.@SCRATCH1
+04F     lcd_send_byte.address
+050     lcd_send_byte.n
+051     lcd_read_byte.low
+051     lcd_send_byte.@SCRATCH1
+052     lcd_read_byte.high
+052     lcd_send_nibble.n
+052     @MULFF.@SCRATCH1
+052     @DIV3232.@SCRATCH1
+053     lcd_read_nibble.n
+053     lcd_read_byte.@SCRATCH1
+053     @MULFF.@SCRATCH2
+053     @DIV3232.@SCRATCH2
+054     lcd_read_nibble.@SCRATCH1
+054     @MULFF.@SCRATCH3
+054     @DIV3232.@SCRATCH3
+055     @MULFF.@SCRATCH4
+055     @DIV3232.@SCRATCH4
+056     @MULFF.@SCRATCH5
+056     @DIV3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07F     @INTERRUPT_AREA
+09C.6   C1OUT
+09C.7   C2OUT
+0FF     @INTERRUPT_AREA
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+17F     @INTERRUPT_AREA
+1FF     @INTERRUPT_AREA
+27F     @INTERRUPT_AREA
+2FF     @INTERRUPT_AREA
+37F     @INTERRUPT_AREA
+3FF     @INTERRUPT_AREA
+47F     @INTERRUPT_AREA
+4FF     @INTERRUPT_AREA
+57F     @INTERRUPT_AREA
+5FF     @INTERRUPT_AREA
+67F     @INTERRUPT_AREA
+6FF     @INTERRUPT_AREA
+77F     @INTERRUPT_AREA
+7FF     @INTERRUPT_AREA
+87F     @INTERRUPT_AREA
+8FF     @INTERRUPT_AREA
+97F     @INTERRUPT_AREA
+9FF     @INTERRUPT_AREA
+A7F     @INTERRUPT_AREA
+AFF     @INTERRUPT_AREA
+B7F     @INTERRUPT_AREA
+BFF     @INTERRUPT_AREA
+C7F     @INTERRUPT_AREA
+CFF     @INTERRUPT_AREA
+D7F     @INTERRUPT_AREA
+DFF     @INTERRUPT_AREA
+E7F     @INTERRUPT_AREA
+EFF     @INTERRUPT_AREA
+F7F     @INTERRUPT_AREA
+FFF     @INTERRUPT_AREA
+107F     @INTERRUPT_AREA
+10FF     @INTERRUPT_AREA
+117F     @INTERRUPT_AREA
+11FF     @INTERRUPT_AREA
+127F     @INTERRUPT_AREA
+12FF     @INTERRUPT_AREA
+137F     @INTERRUPT_AREA
+13FF     @INTERRUPT_AREA
+147F     @INTERRUPT_AREA
+14FF     @INTERRUPT_AREA
+157F     @INTERRUPT_AREA
+15FF     @INTERRUPT_AREA
+167F     @INTERRUPT_AREA
+16FF     @INTERRUPT_AREA
+177F     @INTERRUPT_AREA
+17FF     @INTERRUPT_AREA
+187F     @INTERRUPT_AREA
+18FF     @INTERRUPT_AREA
+197F     @INTERRUPT_AREA
+19FF     @INTERRUPT_AREA
+1A7F     @INTERRUPT_AREA
+1AFF     @INTERRUPT_AREA
+1B7F     @INTERRUPT_AREA
+1BFF     @INTERRUPT_AREA
+1C7F     @INTERRUPT_AREA
+1CFF     @INTERRUPT_AREA
+1D7F     @INTERRUPT_AREA
+1DFF     @INTERRUPT_AREA
+1E7F     @INTERRUPT_AREA
+1EFF     @INTERRUPT_AREA
+1F7F     @INTERRUPT_AREA
+1FFF     @INTERRUPT_AREA
+
+ROM Allocation:
+00004F  isr_rb
+000089  @const732.call
+000093  @const737.call
+00009A  @const738.call
+0000A2  @const739.call
+0000A5  @const740.call
+0000AE  @const741.call
+0000B6  @const742.call
+0000BF  @const743.call
+0000C5  @const744.call
+0000CD  @const745.call
+0000D4  @const746.call
+0000DB  @const747.call
+0000E3  @const751.call
+0000EB  @const767.call
+0000F1  @const768.call
+0000F7  @const775.call
+0000FE  @const781.call
+000104  initial_config
+00011F  @delay_ms1
+000133  lcd_send_nibble
+000161  lcd_read_nibble
+000192  lcd_send_byte
+00019A  lcd_read_byte
+0001F0  lcd_gotoxy
+000202  lcd_putc
+00022E  @PSTRINGC7_697
+000284  creditos
+000284  lcd_init
+000318  menu_inicio
+000364  @ITOF
+000381  @MULFF
+0003F6  @DIV3232
+000445  @PRINTF_L32D_697FPFPF
+00046C  @FTOSD
+000525  temperatura
+000582  @PSTRINGCN7_697
+0005D9  voltaje
+000643  corriente
+000678  @SFTOI
+0006C5  @DIVFF
+0007BC  MAIN
+0007BC  @cinit1
+0007D4  @cinit2
+0007E8  @goto49325
+
+Project Directory:
+    C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\
+
+Project Files:
+    multimetro.c                                            [10-nov.-24 19:35  CRC=F38B5B9A]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [21-feb.-20 15:47  CRC=AD8E8FBD]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=44665A6B
+Program memory checksum=0000
+Hex file CRC=1DF3
+
+Units:
+    C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   multimetro.xsym
+    Errors:      multimetro.err
+    Ext Symbols: multimetro.esym
+    INHX8:       multimetro.hex
+    Symbols:     multimetro.sym
+    List:        multimetro.lst
+    Debug/COFF:  multimetro.cof
+    Project:     multimetro.ccspjt
+    Call Tree:   multimetro.tre
+    Statistics:  multimetro.STA
