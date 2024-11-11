@@ -48,27 +48,27 @@ int refresh = false;
 #INT_RB
 void isr_rb(void) {
     switch(input_b()) {
-        case 0b01110000:
+        case 0b01110000: //boton subir
             if (estado_menu == ESTADO_MENU_INICIO && (seleccion_menu_inicio > SELECCION_TEMPERATURA)) {
                 seleccion_menu_inicio--;
                 refresh = true;
             }
 
             break;
-        case 0b10110000:
+        case 0b10110000: //boton bajar
             if ((estado_menu == ESTADO_MENU_INICIO) && (seleccion_menu_inicio < SELECCION_AMPERAJE)) {
                 seleccion_menu_inicio++;
                 refresh = true;
             }
 
             break;
-        case 0b11010000:
+        case 0b11010000: //boton seleccionar
             if (estado_menu == ESTADO_MENU_INICIO) {
                 estado_menu = seleccion_menu_inicio;
                 refresh = true;
             }
             break;
-        case 0b11100000:
+        case 0b11100000: //boton regresar
             if (estado_menu != ESTADO_MENU_INICIO) {
                 estado_menu = ESTADO_MENU_INICIO;
                 refresh = true;
