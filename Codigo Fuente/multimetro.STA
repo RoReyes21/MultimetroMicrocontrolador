@@ -1,9 +1,9 @@
 
-ROM used:   2032/8192 (25%)
-            2032/8192 (25%) including unused fragments
+ROM used:   2070/8192 (25%)
+            2113/8192 (26%) including unused fragments
 
             1.5 Average locations per line
-            10.1 Average locations per statement
+            10.2 Average locations per statement
 
 RAM used:   21/368 (6%) at main() level
             60/368 (16%) worst case
@@ -30,8 +30,8 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     18   1    4    208  6.3  lcd_gotoxy
 0     44   2    1    354  4.7  lcd_putc
 0     58   3    0    525  7.5  isr_rb
-0     44   2    0    241  3.9  MAIN
-0      8   0    0             @goto15812
+1     57   3    0    241  3.9  MAIN
+1      8   0    0             @goto65512
 0     27   1    0    106  1.3  initial_config
 0    148   7    0    420  1.9  creditos
 0      9   0    0             @const732
@@ -43,12 +43,12 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      8   0    0    379  3.6  @const741
 0     76   4    0    359  4.5  menu_inicio
 0      8   0    0             @const742
-0      7   0    0             @const743
-0      9   0    0             @const744
+0      6   0    0             @const743
+0      7   0    0             @const744
 0      7   0    0             @const745
 0      7   0    0    310  4.0  @const746
-0      8   0    0    327  3.5  @const747
-0     93   5    6    327  3.5  mostrar_temperatura
+0      7   0    0    327  3.5  @const747
+0     99   5    6    327  3.5  mostrar_temperatura
 0      8   0    0             @const751
 0     29   1    2    441  4.3  @ITOF
 0    117   6   13    504  4.3  @MULFF
@@ -59,7 +59,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0      6   0    0    106  1.3  @const767
 0      6   0    0    380  1.8  @const768
 0     87   4    5    409  4.1  @PSTRINGCN7_697
-0    377  19   13    409  4.1  mostrar_corriente
+0    400  19   17    428  4.1  mostrar_corriente
 0      7   0    0             @const775
  Inline         4             @SFTOI
  Inline        14    214  3.4  @DIVFF
@@ -70,10 +70,10 @@ Program metrics:
     Functions               30
     Statements              202
     Comments                257
-    Volume (V)              20946
+    Volume (V)              20979
     Difficulty (D)          115.4
-    Effort to implement (E) 2416702
-    Time to implement (T)   37 hours, 18 minutes
+    Effort to implement (E) 2420705
+    Time to implement (T)   37 hours, 21 minutes
     Est Delivered Bugs (B)  6
     Cyclomatic Complexity   35
     Maintainability (MI)    57
@@ -82,8 +82,8 @@ Program metrics:
 -----------  ----  ----
 00000-00003     4  0  
 00004-0004E    75  0  
-0004F-007FF  1953  16  
-00800-00FFF     0  2048  
+0004F-007FF  1926  43  
+00800-00FFF    65  1983  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

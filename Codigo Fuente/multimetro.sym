@@ -28,7 +28,7 @@
 030-033 mostrar_voltaje.voltaje
 031-034 mostrar_temperatura.temperatura_salida
 031-034 lcd_init.LCD_INIT_STRING
-034-037 mostrar_corriente.corriente
+034-037 mostrar_corriente.corriente_ma
 034     mostrar_voltaje.@SCRATCH1
 035     mostrar_temperatura.grados
 035     lcd_init.@SCRATCH1
@@ -43,12 +43,16 @@
 03D-040 @SFTOI.P4
 03D     @PSTRINGCN7_697.P5
 03D     @PSTRINGC7_697.@SCRATCH1
+03D     mostrar_corriente.@SCRATCH1
 03E     @PSTRINGC7_697.@SCRATCH2
 03E     @PSTRINGCN7_697.@SCRATCH1
+03E     mostrar_corriente.@SCRATCH2
 03F     @PSTRINGC7_697.@SCRATCH3
 03F     @PSTRINGCN7_697.@SCRATCH2
+03F     mostrar_corriente.@SCRATCH3
 040     @PSTRINGC7_697.@SCRATCH4
 040     @PSTRINGCN7_697.@SCRATCH3
+040     mostrar_corriente.@SCRATCH4
 041     @PRINTF_L32D_697FPFPF.P1
 041-044 @DIVFF.P2
 041     @PSTRINGCN7_697.@SCRATCH4
@@ -181,54 +185,54 @@ ROM Allocation:
 0000AD  @const741.call
 0000B5  @const742.call
 0000BD  @const743.call
-0000C4  @const744.call
-0000CD  @const745.call
-0000D4  @const746.call
-0000DB  @const747.call
-0000E3  @const751.call
-0000EB  @const767.call
-0000F1  @const768.call
-0000F7  @const775.call
-0000FE  @const781.call
-000104  initial_config
-00011F  @delay_ms1
-000133  lcd_send_nibble
-000161  lcd_read_nibble
-000192  lcd_send_byte
-00019A  lcd_read_byte
-0001F0  lcd_gotoxy
-000202  lcd_putc
-00022E  @PSTRINGC7_697
-000284  creditos
-000284  lcd_init
-000318  menu_inicio
-000364  @ITOF
-000381  @MULFF
-0003F6  @DIV3232
-000445  @PRINTF_L32D_697FPFPF
-00046C  @FTOSD
-000525  @PSTRINGCN7_697
-00057C  mostrar_voltaje
-0005E6  mostrar_corriente
-00061B  @SFTOI
-000668  @DIVFF
-00075F  mostrar_temperatura
+0000C3  @const744.call
+0000CA  @const745.call
+0000D1  @const746.call
+0000D8  @const747.call
+0000DF  @const751.call
+0000E7  @const767.call
+0000ED  @const768.call
+0000F3  @const775.call
+0000FA  @const781.call
+000100  initial_config
+00011B  @delay_ms1
+00012F  lcd_send_nibble
+00015D  lcd_read_nibble
+00018E  lcd_send_byte
+000196  lcd_read_byte
+0001EC  lcd_gotoxy
+0001FE  lcd_putc
+00022A  @PSTRINGC7_697
+000280  creditos
+000280  lcd_init
+000314  menu_inicio
+000360  @ITOF
+00037D  @MULFF
+0003F2  @DIV3232
+000441  @PRINTF_L32D_697FPFPF
+000468  @FTOSD
+000521  mostrar_temperatura
+000584  @PSTRINGCN7_697
+0005DB  mostrar_voltaje
+000645  mostrar_corriente
+00067A  @SFTOI
+0006C7  @DIVFF
 0007BC  MAIN
-0007BC  @cinit1
-0007D4  @cinit2
-0007E8  @goto15812
+000800  @cinit1
+000818  @cinit2
+000839  @goto65512
 
 Project Directory:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\
 
 Project Files:
-    multimetro.c                                            [10-nov.-24 19:50  CRC=EF59D780]
+    multimetro.c                                            [10-nov.-24 20:49  CRC=B2B9CB0E]
     ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [21-feb.-20 15:47  CRC=AD8E8FBD]
     ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=4034D651
+Source signature=0394C9DF
 Program memory checksum=0000
-Hex file CRC=1921
+Hex file CRC=DF62
 
 Units:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro (main)

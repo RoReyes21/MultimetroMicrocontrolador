@@ -1,7 +1,7 @@
 D G "__PCM__" 0 232 ""5.093""
 D G "__DEVICE__" 0 232 "877"
 D G "__DATE__" 0 232 ""10-Nov-24""
-D G "__TIME__" 0 232 ""19:57:44""
+D G "__TIME__" 0 232 ""20:49:54""
 D G "_UNICODE" 0 232 ""?""
 D G "__EVAL" 0 232 ""?"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
@@ -1199,14 +1199,14 @@ V L "on" 2 443 "int8" `708
 F G "lcd_cursor_on" 2 444 "void(int8 on)" `707 
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
 C L "lcd_cursor_on" 2 2 1 "FUNCTION"
-E G "SELECCION_VOLTAJE" 0 22 "1" `710 
-E G "SELECCION_AMPERAJE" 0 23 "2" `711 
-E G "SELECCION_TEMPERATURA" 0 24 "3" `712 
+E G "SELECCION_TEMPERATURA" 0 22 "1" `710 
+E G "SELECCION_VOLTAJE" 0 23 "2" `711 
+E G "SELECCION_AMPERAJE" 0 24 "3" `712 
 V G "" 0 24 ""
 E G "ESTADO_MENU_INICIO" 0 28 "0" `714 
-E G "ESTADO_MENU_VOLTAJE" 0 29 "1" `715 
-E G "ESTADO_MENU_AMPERAJE" 0 30 "2" `716 
-E G "ESTADO_MENU_TEMPERATURA" 0 31 "3" `717 
+E G "ESTADO_MENU_TEMPERATURA" 0 29 "1" `715 
+E G "ESTADO_MENU_VOLTAJE" 0 30 "2" `716 
+E G "ESTADO_MENU_AMPERAJE" 0 31 "3" `717 
 V G "" 0 31 ""
 F N "creditos" 0 33 ""
 f G "creditos" 0 33 "void()" `718 
@@ -1252,7 +1252,7 @@ C L "mostrar_corriente" 0 210 1 "*"
 F N "mostrar_corriente" 0 214 ""
 F G "mostrar_corriente" 0 214 "void()" `721 
 V L "voltaje" 0 215 "float" `771 
-V L "corriente" 0 215 "float" `772 
+V L "corriente_ma" 0 215 "float" `772 
 V L "resistencia" 0 215 "float" `773 
 V L "valor_entrada" 0 216 "int8" `774 
 F B "reset_cpu" 0 0

@@ -18,16 +18,16 @@
 #include <lcd.c>
 
 enum seleccion_opciones_menu {
-    SELECCION_VOLTAJE = 1,
+    SELECCION_TEMPERATURA = 1,
+    SELECCION_VOLTAJE,
     SELECCION_AMPERAJE,
-    SELECCION_TEMPERATURA
 };
 
 enum estados_menu {
     ESTADO_MENU_INICIO,
+    ESTADO_MENU_TEMPERATURA,
     ESTADO_MENU_VOLTAJE,
-    ESTADO_MENU_AMPERAJE,
-    ESTADO_MENU_TEMPERATURA
+    ESTADO_MENU_AMPERAJE
 };
 
 void creditos();
@@ -37,7 +37,7 @@ void mostrar_corriente();
 void mostrar_voltaje();
 void mostrar_temperatura();
 
-int seleccion_menu_inicio = SELECCION_VOLTAJE;
+int seleccion_menu_inicio = SELECCION_TEMPERATURA;
 int estado_menu = ESTADO_MENU_INICIO;
 int refresh = false;
 
@@ -49,14 +49,14 @@ int refresh = false;
 void isr_rb(void) {
     switch(input_b()) {
         case 0b01110000:
-            if (estado_menu == ESTADO_MENU_INICIO && (seleccion_menu_inicio > SELECCION_VOLTAJE)) {
+            if (estado_menu == ESTADO_MENU_INICIO && (seleccion_menu_inicio > SELECCION_TEMPERATURA)) {
                 seleccion_menu_inicio--;
                 refresh = true;
             }
 
             break;
         case 0b10110000:
-            if ((estado_menu == ESTADO_MENU_INICIO) && (seleccion_menu_inicio < SELECCION_TEMPERATURA)) {
+            if ((estado_menu == ESTADO_MENU_INICIO) && (seleccion_menu_inicio < SELECCION_AMPERAJE)) {
                 seleccion_menu_inicio++;
                 refresh = true;
             }
@@ -90,14 +90,14 @@ void main()
             case ESTADO_MENU_INICIO:
                 menu_inicio();
                 break;
+            case ESTADO_MENU_TEMPERATURA:
+                mostrar_temperatura();
+                break;
             case ESTADO_MENU_VOLTAJE:
                 mostrar_voltaje();
                 break;
             case ESTADO_MENU_AMPERAJE:
                 mostrar_corriente();
-                break;
-            case ESTADO_MENU_TEMPERATURA:
-                mostrar_temperatura();
                 break;
         }
     }
@@ -146,20 +146,20 @@ void creditos() {
 void menu_inicio() {
 
     switch (seleccion_menu_inicio) {
+        case SELECCION_TEMPERATURA:
+            lcd_putc("\f* Temperatura");
+            lcd_gotoxy(1,2);
+            lcd_putc(" Voltimetro");
+            break;
         case SELECCION_VOLTAJE:
-            lcd_putc("\f->> Voltimetro");
+            lcd_putc("\f* Voltimetro");
             lcd_gotoxy(1,2);
             lcd_putc(" Amperimetro");
             break;
         case SELECCION_AMPERAJE:
-            lcd_putc("\f->> Amperimetro");
+            lcd_putc("\f Voltimetro");
             lcd_gotoxy(1,2);
-            lcd_putc(" Temperatura");
-            break;
-        case SELECCION_TEMPERATURA:
-            lcd_putc("\f Amperimetro");
-            lcd_gotoxy(1,2);
-            lcd_putc("->> Temperatura");
+            lcd_putc("* Amperimetro");
             break;
     }
 
@@ -183,7 +183,7 @@ void mostrar_temperatura() {
         temperatura_entrada = read_adc();
         temperatura_salida = temperatura_entrada * 0.483;
         lcd_gotoxy(1,2);
-        printf(lcd_putc," %2.1f %c", temperatura_salida, grados);
+        printf(lcd_putc," %2.1f %c C", temperatura_salida, grados);
         delay_ms(20);
     }
 }
@@ -212,7 +212,7 @@ void mostrar_voltaje() {
  * 
  */
 void mostrar_corriente() {
-    float voltaje, corriente, resistencia = 0.1;
+    float voltaje, corriente_ma, resistencia = 0.1;
     int valor_entrada;
 
     set_adc_channel(2);
@@ -222,9 +222,9 @@ void mostrar_corriente() {
     while (!refresh) {
         valor_entrada = (float) read_adc();
         voltaje = valor_entrada * ((5.0 / 1023.0) * 4.09);
-        corriente = voltaje / resistencia;
+        corriente_ma = (voltaje / resistencia) * 1000;
         lcd_gotoxy(1,2);
-        printf(lcd_putc," %2.2f [A]", corriente);
+        printf(lcd_putc," %2.2f [mA]", corriente_ma);
         delay_ms(20);
     }
 }
