@@ -1,4 +1,6 @@
-Compiling C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro on 10-nov.-24 at 20:49
-      Memory usage:   ROM=25%      RAM=6% - 16%
-      0 Errors,  0 Warnings.
+Compiling C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro on 13-nov.-24 at 17:31
+>>> Warning 202 "C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro.c" Line 215(34,45): Variable never used:   resistencia
+>>> Warning 202 "C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro.c" Line 216(9,22): Variable never used:   valor_entrada
+      Memory usage:   ROM=24%      RAM=6% - 16%
+      0 Errors,  2 Warnings.
 Build Successful.

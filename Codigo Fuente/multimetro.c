@@ -220,9 +220,8 @@ void mostrar_corriente() {
     
     lcd_putc("\f Corriente: ");
     while (!refresh) {
-        valor_entrada = (float) read_adc();
-        voltaje = valor_entrada * ((5.0 / 1023.0) * 4.09);
-        corriente_ma = (voltaje / resistencia) * 1000;
+        voltaje = (float) read_adc();
+        corriente_ma = (((voltaje * 5000) /1023));
         lcd_gotoxy(1,2);
         printf(lcd_putc," %2.2f [mA]", corriente_ma);
         delay_ms(20);

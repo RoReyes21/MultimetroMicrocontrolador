@@ -4,8 +4,8 @@
 015     CCP_1
 015     CCP_1_LOW
 016     CCP_1_HIGH
-01B     CCP_2_LOW
 01B     CCP_2
+01B     CCP_2_LOW
 01C     CCP_2_HIGH
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
@@ -22,12 +22,12 @@
 02C     estado_menu
 02D     refresh
 02E-02F @sprintf_string
-030-033 mostrar_corriente.voltaje
-030     lcd_init.i
-030     mostrar_temperatura.temperatura_entrada
 030-033 mostrar_voltaje.voltaje
-031-034 mostrar_temperatura.temperatura_salida
+030-033 mostrar_corriente.voltaje
+030     mostrar_temperatura.temperatura_entrada
+030     lcd_init.i
 031-034 lcd_init.LCD_INIT_STRING
+031-034 mostrar_temperatura.temperatura_salida
 034-037 mostrar_corriente.corriente_ma
 034     mostrar_voltaje.@SCRATCH1
 035     mostrar_temperatura.grados
@@ -37,11 +37,9 @@
 037     mostrar_voltaje.@SCRATCH4
 038-03B mostrar_corriente.resistencia
 03C     mostrar_corriente.valor_entrada
-03D-03E @ITOF.P1
+03D     @PSTRINGCN7_697.P1
 03D-040 @PRINTF_L32D_697FPFPF.P2
-03D-040 @DIVFF.P3
-03D-040 @SFTOI.P4
-03D     @PSTRINGCN7_697.P5
+03D-03E @ITOF.P3
 03D     @PSTRINGC7_697.@SCRATCH1
 03D     mostrar_corriente.@SCRATCH1
 03E     @PSTRINGC7_697.@SCRATCH2
@@ -53,41 +51,42 @@
 040     @PSTRINGC7_697.@SCRATCH4
 040     @PSTRINGCN7_697.@SCRATCH3
 040     mostrar_corriente.@SCRATCH4
-041     @PRINTF_L32D_697FPFPF.P1
-041-044 @DIVFF.P2
+041-044 @DIVFF.P1
+041     @PRINTF_L32D_697FPFPF.P2
 041     @PSTRINGCN7_697.@SCRATCH4
 042     @PRINTF_L32D_697FPFPF.@SCRATCH1
 043     @PRINTF_L32D_697FPFPF.@SCRATCH2
 044     @PRINTF_L32D_697FPFPF.@SCRATCH3
+045-048 @DIVFF.P1
 045     @PRINTF_L32D_697FPFPF.@SCRATCH4
-045     @DIVFF.@SCRATCH1
 046     @PRINTF_L32D_697FPFPF.@SCRATCH5
-046     @DIVFF.@SCRATCH2
 047     @PRINTF_L32D_697FPFPF.@SCRATCH6
-047     @DIVFF.@SCRATCH3
 048     @PRINTF_L32D_697FPFPF.@SCRATCH7
-048     @DIVFF.@SCRATCH4
 049     @PRINTF_L32D_697FPFPF.@SCRATCH8
-049     @DIVFF.@SCRATCH5
+049     @DIVFF.@SCRATCH1
 04A-04D @DIV3232.P1
 04A     lcd_putc.c
-04A-04D @FTOSD.P1
-04A-04D @MULFF.P2
-04A     @DIVFF.@SCRATCH6
+04A-04D @MULFF.P1
+04A-04D @FTOSD.P2
+04A     @DIVFF.@SCRATCH2
 04B     lcd_gotoxy.x
 04B     @delay_ms1.P1
+04B     @DIVFF.@SCRATCH3
 04C     lcd_gotoxy.y
+04C     @DIVFF.@SCRATCH4
 04D     lcd_gotoxy.address
-04E-051 @MULFF.P1
-04E-051 @DIV3232.P2
+04D     @DIVFF.@SCRATCH5
+04E-051 @DIV3232.P1
+04E-051 @MULFF.P2
 04E     lcd_gotoxy.@SCRATCH1
 04E     @FTOSD.@SCRATCH1
+04E     @DIVFF.@SCRATCH6
 04F     lcd_send_byte.address
 050     lcd_send_byte.n
 051     lcd_read_byte.low
 051     lcd_send_byte.@SCRATCH1
-052     lcd_read_byte.high
 052     lcd_send_nibble.n
+052     lcd_read_byte.high
 052     @MULFF.@SCRATCH1
 052     @DIV3232.@SCRATCH1
 053     lcd_read_nibble.n
@@ -110,8 +109,8 @@
 09C.6   C1OUT
 09C.7   C2OUT
 0FF     @INTERRUPT_AREA
-10D-10E @WRITE_PROGRAM_MEMORY8.P1
-10D-10E @READ_PROGRAM_MEMORY8.P2
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
 17F     @INTERRUPT_AREA
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
@@ -193,7 +192,7 @@ ROM Allocation:
 0000E7  @const767.call
 0000ED  @const768.call
 0000F3  @const775.call
-0000FA  @const781.call
+0000FA  @const779.call
 000100  initial_config
 00011B  @delay_ms1
 00012F  lcd_send_nibble
@@ -203,8 +202,8 @@ ROM Allocation:
 0001EC  lcd_gotoxy
 0001FE  lcd_putc
 00022A  @PSTRINGC7_697
-000280  creditos
 000280  lcd_init
+000280  creditos
 000314  menu_inicio
 000360  @ITOF
 00037D  @MULFF
@@ -215,24 +214,23 @@ ROM Allocation:
 000584  @PSTRINGCN7_697
 0005DB  mostrar_voltaje
 000645  mostrar_corriente
-00067A  @SFTOI
-0006C7  @DIVFF
-0007BC  MAIN
-000800  @cinit1
-000818  @cinit2
-000839  @goto65512
+0006A1  @DIVFF
+000798  @cinit1
+000798  MAIN
+0007B0  @cinit2
+0007C4  @goto19309
 
 Project Directory:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\
 
 Project Files:
-    multimetro.c                                            [10-nov.-24 20:49  CRC=B2B9CB0E]
+    multimetro.c                                            [13-nov.-24 17:31  CRC=F0BDEA27]
     ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [21-feb.-20 15:47  CRC=AD8E8FBD]
     ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c   [22-feb.-16 09:05  CRC=D1A6378A]
 
-Source signature=0394C9DF
+Source signature=4198E8F8
 Program memory checksum=0000
-Hex file CRC=DF62
+Hex file CRC=4BF3
 
 Units:
     C:\Users\thefo\Desktop\MultimetroMicrocontrolador\Codigo Fuente\multimetro (main)

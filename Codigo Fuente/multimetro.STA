@@ -1,9 +1,9 @@
 
-ROM used:   2070/8192 (25%)
-            2113/8192 (26%) including unused fragments
+ROM used:   1996/8192 (24%)
+            1996/8192 (24%) including unused fragments
 
-            1.5 Average locations per line
-            10.2 Average locations per statement
+            1.4 Average locations per line
+            9.9 Average locations per statement
 
 RAM used:   21/368 (6%) at main() level
             60/368 (16%) worst case
@@ -13,15 +13,15 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-  231   102  50  multimetro.c
+  230   101  50  multimetro.c
   696     0   0  ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
   456   100  50  ..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
 ----- -----
- 1383   202 Total
+ 1382   201 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     20   1    1    596  5.9  @delay_ms1
+0     20   1    1             @delay_ms1
  Inline         3    760  4.5  lcd_read_byte
 0     49   2    2    262  3.7  lcd_read_nibble
 0     46   2    1    399  2.4  lcd_send_nibble
@@ -30,60 +30,59 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     18   1    4    208  6.3  lcd_gotoxy
 0     44   2    1    354  4.7  lcd_putc
 0     58   3    0    525  7.5  isr_rb
-1     57   3    0    241  3.9  MAIN
-1      8   0    0             @goto65512
+0     44   2    0    241  3.9  MAIN
+0      8   0    0             @goto19309
 0     27   1    0    106  1.3  initial_config
 0    148   7    0    420  1.9  creditos
 0      9   0    0             @const732
 0     86   4    4             @PSTRINGC7_697
 0      7   0    0             @const737
 0      8   0    0             @const738
-0      3   0    0    319  3.5  @const739
-0      9   0    0    405  3.6  @const740
-0      8   0    0    379  3.6  @const741
+0      3   0    0             @const739
+0      9   0    0             @const740
+0      8   0    0             @const741
 0     76   4    0    359  4.5  menu_inicio
 0      8   0    0             @const742
 0      6   0    0             @const743
 0      7   0    0             @const744
 0      7   0    0             @const745
-0      7   0    0    310  4.0  @const746
-0      7   0    0    327  3.5  @const747
+0      7   0    0             @const746
+0      7   0    0             @const747
 0     99   5    6    327  3.5  mostrar_temperatura
 0      8   0    0             @const751
-0     29   1    2    441  4.3  @ITOF
-0    117   6   13    504  4.3  @MULFF
+0     29   1    2             @ITOF
+0    117   6   13             @MULFF
  Inline         5             @FTOSD
 0     79   4   13             @DIV3232
-0    224  11   13    284  4.0  @PRINTF_L32D_697FPFPF
+0    224  11   13             @PRINTF_L32D_697FPFPF
 0    106   5    8    284  4.0  mostrar_voltaje
-0      6   0    0    106  1.3  @const767
-0      6   0    0    380  1.8  @const768
-0     87   4    5    409  4.1  @PSTRINGCN7_697
-0    400  19   17    428  4.1  mostrar_corriente
+0      6   0    0             @const767
+0      6   0    0             @const768
+0     87   4    5             @PSTRINGCN7_697
+0    339  17   17    361  4.1  mostrar_corriente
 0      7   0    0             @const775
- Inline         4             @SFTOI
- Inline        14    214  3.4  @DIVFF
-0      6   0    0    214  3.4  @const781
- Inline         0    231  3.5  @cinit1
+ Inline        14             @DIVFF
+0      6   0    0             @const779
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               30
-    Statements              202
-    Comments                257
-    Volume (V)              20979
-    Difficulty (D)          115.4
-    Effort to implement (E) 2420705
-    Time to implement (T)   37 hours, 21 minutes
-    Est Delivered Bugs (B)  6
-    Cyclomatic Complexity   35
-    Maintainability (MI)    57
+    Functions               15
+    Statements              201
+    Comments                261
+    Volume (V)              10017
+    Difficulty (D)          58.9
+    Effort to implement (E) 589931
+    Time to implement (T)   9 hours, 6 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   23
+    Maintainability (MI)    104
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-0004E    75  0  
-0004F-007FF  1926  43  
-00800-00FFF    65  1983  
+0004F-007FF  1917  52  
+00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  
 

@@ -11,20 +11,36 @@ Type=4
 1=multimetro.c
 
 [defines]
-buildcount=10
+buildcount=18
 
 [Opened Files]
 1=multimetro.c
-t1=1
+t1=205
 Count=1
 
 [ProjectLog]
-Days=1
+Days=2
 D1=10-11-2024
-D1_L=3
+D1_L=4
 D1_L1=[70422]Stopped Editing.
 D1_L2=[73291]Started Editing.
 D1_L3=[73600]Stopped Editing.
+TotalEdit=74
+TotalDebug=0
+D1_E=3
+D1_D=0
+D1_L4=[75741]Project Closed.
+D2=13-11-2024
+D2_L=4
+D2_L1=[62081]Project Opened.
+D2_L2=[62156]Started Editing.
+D2_L3=[66392]Stopped Editing.
+D2_E=71
+D2_D=0
+D2_L4=[66392]Project Closed.
+
+[fileformats]
+forcecoff=0
 [Units]
 Count=1
 1=multimetro (main)
